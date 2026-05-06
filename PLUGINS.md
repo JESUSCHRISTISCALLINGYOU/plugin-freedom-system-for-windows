@@ -1,79 +1,93 @@
-# PLUGIN REGISTRY
+---
+last_updated: 2026-05-06
+project_name: plugin-freedom-system
+version: 1.0
+plugin_count: 3
+---
 
-## State Legend
+# Plugin Freedom System
 
-- **💡 Ideated** - Creative brief exists, no implementation
-- **💡 Ideated (Draft Params)** - Creative brief + draft parameters, ready for parallel workflow
-- **🚧 Stage N** - In development (specific stage number)
-- **✅ Working** - Completed Stage 6, not installed
-- **📦 Installed** - Deployed to system folders
-- **🐛 Has Issues** - Known problems (combines with other states)
-- **🗑️ Archived** - Deprecated
+A system for autonomous JUCE plugin development with validation and deployment pipeline.
 
-## State Machine Rules
+**Status**: Beta (2026)
 
-- If status is 🚧: ONLY plugin-workflow can modify (use `/continue` to resume)
-- plugin-improve blocks if status is 🚧 (must complete workflow first)
+**Author**: TâCHES
 
-## Build Management
+---
 
-- All plugin builds managed by `build-automation` skill
-- Build logs: `logs/[PluginName]/build_TIMESTAMP.log`
-- Installed plugins: `~/Library/Audio/Plug-Ins/VST3/` and `~/Library/Audio/Plug-Ins/Components/`
+## Entry Points
+
+- `/implement [PluginName]` - Start implementation from Stage 1
+- `/research [topic]` - Research plugin development topics
+- `/dream [PluginName]` - Ideate new plugin
+- `/plan [PluginName]` - Complete Stage 0 for existing plugin
+- `/continue [PluginName]` - Resume implementation
+- `/validate [PluginName]` - Run validation
+
+---
+
+## Plugin Development Lifecycle
+
+1. **Stage 0 (Ideation)**: Research, ideation, architecture, planning
+2. **Stage 1 (Foundation)**: Build system, parameters, shell, UI resources
+3. **Stage 2 (DSP)**: Audio engine implementation
+4. **Stage 3 (GUI)**: WebView integration
+5. **Stage 4 (Validation)**: Runtime validation and testing
+6. **Stage 5 (Release)**: Build and release
+
+---
 
 ## Plugin Registry
 
 | Plugin Name | Status | Version | Type | Last Updated |
-|-------------|--------|---------|------|--------------|
-| GainKnob | 📦 Installed | 1.2.3 | Audio Effect (Utility) | 2025-11-10 |
-| TapeAge | 📦 Installed | 1.1.1 | Audio Effect | 2025-11-15 |
-| ClapMachine | 💡 Ideated | - | - | 2025-11-10 |
-| DriveVerb | 📦 Installed | 1.0.2 | Audio Effect (Reverb) | 2025-11-12 |
-| FlutterVerb | 📦 Installed | 1.0.3 | Audio Effect (Reverb) | 2025-11-12 |
-| LushVerb | 💡 Ideated | - | Audio Effect (Reverb) | 2025-11-12 |
-| OrganicHats | 📦 Installed | 1.0.0 | Synth (Instrument) | 2025-11-12 |
-| DrumRoulette | 📦 Installed | 1.0.0 | Instrument (Drum Sampler) | 2025-11-12 |
-| Scatter | ✅ Working | 1.0.0 | Audio Effect (Granular Delay) | 2025-11-14 |
-| AutoClip | 📦 Installed | 1.0.1 | Audio Effect (Hard Clipper) | 2025-11-15 |
-| MinimalKick | 🚧 Stage 5 | - | Synth | 2025-11-13 |
-| Drum808 | 📦 Installed | 1.0.0 | Synth (Drum Instrument) | 2025-11-13 |
-| LushPad | 📦 Installed | 1.0.0 | Synth (Instrument) | 2025-11-13 |
-| Words | 💡 Ideated | - | Utility (MIDI Sequencer) | 2025-11-13 |
-| PadForge | 💡 Ideated | - | Synth (Instrument) | 2025-11-14 |
-| AngelGrain | 📦 Installed | 1.0.0 | Audio Effect (Granular Delay) | 2025-11-19 |
+|------|-------|---------|------|------|
+| TapeAge | Installed | 1.2.0 | Audio Effect (Headless) | 2026-05-06 |
+| TahnBox Pro Audio Edition | Stage 2 | - | Audio Effect (Saturation) | 2026-05-04 |
+| BuzzyDrive | Stage 3 | v1.0.2 | Audio Effect (Distortion) | 2026-05-05 |
+
+### BuzzyDrive
+**Status:** Stage 3
+**Complexity:** 3.6/5.0
+**DSP Algorithm:** Soft-clipping waveshaper with tanh() transfer function
+**Signal Chain:** Input -> Input Gain -> Waveshaper -> Dry/Wet Mixer -> Output
+**Sonic Character:** Warm tube-style distortion with even harmonic saturation
+**Use Cases:** Guitar overdrive, bass saturation, subtle vocal coloration
+
+**Lifecycle Timeline:**
+- **2026-05-04 (Stage 0):** Research & Planning complete
+- **2026-05-04 (Stage 1):** Foundation + Shell complete
+- **2026-05-04 (Stage 2):** Audio Engine Working - DSP implementation complete
+- **2026-05-04 (Stage 3):** GUI WebView Integration complete
+- **2026-05-05 (v1.0.2):** Build fixes for JUCE 8 API changes (Logarithmic enum, prepareToUseAtSampleRate, WaveShaper lambda, WebView resource provider, BinaryData keys)
+
+**Last Updated:** 2026-05-05
 
 **For detailed plugin information (lifecycle timeline, known issues, parameters, etc.), see:**
 `plugins/[PluginName]/NOTES.md`
+
+---
 
 ## Entry Template
 
 When adding new plugins to this registry, use this format:
 
 ```markdown
-| [PluginName] | [Emoji] [State] | [X.Y.Z or -] | [Type or -] | YYYY-MM-DD |
+### [PluginName]
+**Status:** [Ideated|Stage 0|Stage 1|Stage 2|Stage 3|Stage 4|Working|Installed]
+**Complexity:** [number]/5.0
+**DSP Algorithm:** [Brief description]
+**Signal Chain:** [Description]
+**Sonic Character:** [Description]
+**Use Cases:** [Use cases]
+
+**Lifecycle Timeline:**
+- **[DATE] (Stage X):** Description
+
+**Last Updated:** [DATE]
 ```
 
-Create corresponding `plugins/[PluginName]/NOTES.md` with full details:
+---
 
-```markdown
-# [PluginName] Notes
+## Notes
 
-## Status
-- **Current Status:** [emoji] [State Name]
-- **Version:** [X.Y.Z or N/A]
-- **Type:** [Type]
-
-## Lifecycle Timeline
-
-- **YYYY-MM-DD:** [Event description]
-- **YYYY-MM-DD (Stage N):** [Stage completion description]
-- **YYYY-MM-DD (vX.Y.Z):** [Version release description]
-
-## Known Issues
-
-[Issue description or "None"]
-
-## Additional Notes
-
-[Any other relevant information - description, parameters, DSP, GUI, validation, formats, installation locations, use cases, etc.]
-```
+See `plugins/[PluginName]/NOTES.md` for plugin-specific documentation.
