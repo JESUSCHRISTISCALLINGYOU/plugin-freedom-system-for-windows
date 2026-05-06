@@ -1,9 +1,8 @@
 # Plugin Freedom System
 
-An AI-assisted JUCE plugin development system that enables conversational creation of professional VST3 and AU audio plugins for macOS. Design and build custom audio processors through natural dialogue with Claude Code—no programming experience required.
+An AI-assisted JUCE plugin development system that enables conversational creation of professional VST3 audio plugins for Windows 11. Design and build custom audio processors through natural dialogue with Claude Code—no programming experience required.
 
-**Created by [TÂCHES](https://youtube.com/tachesteaches)**
-
+**Created by [TÂCHES](https://youtube.com/tachesteaches)** **Modified by [JESUSCHRISTISCALLINGYOU](https://www.youtube.com/@ANSWERTHECALLOFJESUSCHRIST)**
 [![Watch the Demo](https://img.shields.io/badge/▶_Watch_Demo-1.45hr_walkthrough-red?style=for-the-badge&logo=youtube)](https://youtu.be/RsZB1K8oH0c)
 
 ## Why This Exists
