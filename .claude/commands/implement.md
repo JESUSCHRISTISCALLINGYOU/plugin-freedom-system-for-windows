@@ -274,7 +274,7 @@ Resume with `/continue [PluginName]`
 
 <expected_output>
   By completion, plugin has:
-  - Compiling VST3 + AU plugins
+  - Compiling VST3 plugin
   - Working audio processing + functional WebView UI
   - Pluginval compliant with factory presets
   - Complete git history for all stages

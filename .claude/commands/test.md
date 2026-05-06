@@ -43,7 +43,7 @@ Use /implement [PluginName] to build it first.
 - **Requirement:** Always available (no dependencies)
 - **Invocation:** Invoke the build-automation skill via Skill tool
 - **Duration:** 5-10 minutes
-- **Steps:** Build Release mode (VST3 + AU), run pluginval validation tool with strict settings (level 10), install to system folders, clear DAW caches
+- **Steps:** Build Release mode (VST3), run pluginval validation tool with strict settings (level 10), install to system folders, clear DAW caches
 
 **Mode: manual (checklist only)**
 - **Requirement:** Always available

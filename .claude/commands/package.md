@@ -1,6 +1,6 @@
 ---
 name: package
-description: Create branded PKG installer for plugin distribution
+description: Create branded installer for plugin distribution
 argument-hint: <PluginName>
 ---
 
@@ -19,7 +19,7 @@ argument-hint: <PluginName>
       Guide: "Run: /install-plugin {{PLUGIN_NAME}}"
 
     IF binaries missing:
-      Display: "VST3 or AU binaries not found in system folders"
+      Display: "VST3 binaries not found in system folders"
       Guide: "Verify installation and try again"
   </on_failure>
 </preconditions>
@@ -60,9 +60,8 @@ argument-hint: <PluginName>
   User input: "/package TapeAge"
   → Creates: plugins/TapeAge/dist/TapeAge-by-TACHES.pkg
 
-  User input: "/package GainKnob"
-  → Creates: plugins/GainKnob/dist/GainKnob-by-TACHES.pkg
 
-  User input: "Create installer for DriveVerb"
+
+  User input: "Create installer for TapeAge"
   → Natural language routing to plugin-packaging skill
 </invocation_examples>

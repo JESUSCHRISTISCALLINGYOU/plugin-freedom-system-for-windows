@@ -1,6 +1,6 @@
 ---
 name: install-plugin
-description: Install completed plugin to system folders for DAW use
+description: Install completed VST3 plugin to Windows system folder for DAW use (Windows-only, VST3-only)
 argument-hint: <PluginName>
 ---
 
@@ -26,7 +26,7 @@ argument-hint: <PluginName>
 
 <routing>
   <invoke skill="plugin-lifecycle" with="$ARGUMENTS" required="true">
-    Pass plugin name to plugin-lifecycle skill for installation
+    Pass plugin name to plugin-lifecycle skill for installation (Windows VST3 only)
   </invoke>
 </routing>
 
