@@ -2,7 +2,20 @@
 
 An AI-assisted JUCE plugin development system that enables conversational creation of professional VST3 audio plugins. Design and build custom audio processors through natural dialogue with Claude Code—no programming experience required.
 
-**Created by [TÂCHES](https://youtube.com/tachesteaches)** **Modified by [JESUSCHRISTISCALLINGYOU](https://www.youtube.com/@ANSWERTHECALLOFJESUSCHRIST)**
+**Created by [TÂCHES](https://youtube.com/tachesteaches)** - **Modified by [JESUSCHRISTISCALLINGYOU](https://www.youtube.com/@ANSWERTHECALLOFJESUSCHRIST)**
+
+## What I Did
+
+Modified with Qwen3.6 (https://ollama.com/library/qwen3.6), which is the model I found works best for me. I am using an RTX 5090. Use a smaller quantization of Qwen3.6 (or a different model) if you have less than 32GB of VRAM. 
+Launch with **ollama launch claude** in Terminal or PowerShell under C:\Users\youruserfolder\plugin-freedom-system. For this to work, you will need Ollama, Claude Code, JUCE 8+, Python, CMake, pluginval, Git (if you do the commit thing), Visual Studio 2022 (optional but useful) and WebView2 SDK (if you are going to use it for fancy GUIs).
+
+Optionally, I installed chocolatey, Ninja and other terminal tools for retrieving online packages. Install whatever you need. You can steer the system to use what you are accustomed to. The main thing is ensuring the system configures your Windows paths correctly, and JUCE was a pain with CMake. I hope you don't go through what I went through. I changed the build script, so if your paths are set correctly, you shouldn't stumble like I did. Still, you will probably hit an obstacle and become frustrated. Do not give up. 
+
+Finally, *AI models will gaslight you or lie to you*, so check every step when the model you use says it did something. Ensure the plugin-freedom-system Claude agents (their name shows in color) and skills (they show their name) are active (you will see them when invoked). Otherwise, the AI model will be the one running the show and doing its corrupted, hallucinated thing instead of adhering to the plugin-freedom-system guidelines. This system needs guidance. It was made in MacOS using the fancy Claude cloud models, so with local models, it will not perform at its 100% potential. 
+
+I only made the AI model change the MacOS-relevant stuff so it wouldn't default to MacOS tools and paths. The included plugins are still showing their MacOS origin so they will not build on the first go. The system will need coaxing from you. I left a plugin of mine called BuzzyDrive that is a broken work in progress but it compiles perfectly. Use its CMakeLists as an example if you get stuck. I have spent hours upon hours polisihng this for me, but I was not its creator, so I am not responsible for your potential anger or frustration. 
+
+It still behaves like the original. I am just sharing my modification so my efforts do not go to waste. Have fun!
 
 ## Platform Support
 
