@@ -1,8 +1,15 @@
 # Plugin Freedom System
 
-An AI-assisted JUCE plugin development system that enables conversational creation of professional VST3 audio plugins for Windows 11. Design and build custom audio processors through natural dialogue with Claude Code—no programming experience required.
+An AI-assisted JUCE plugin development system that enables conversational creation of professional VST3 audio plugins. Design and build custom audio processors through natural dialogue with Claude Code—no programming experience required.
 
 **Created by [TÂCHES](https://youtube.com/tachesteaches)** **Modified by [JESUSCHRISTISCALLINGYOU](https://www.youtube.com/@ANSWERTHECALLOFJESUSCHRIST)**
+
+## Platform Support
+
+- ✅ **Windows**: VST3 (32/64-bit DAW compatibility)
+- ✅ **Cross-platform**: Build once, target any platform's DAW
+
+
 [![Watch the Demo](https://img.shields.io/badge/▶_Watch_Demo-1.45hr_walkthrough-red?style=for-the-badge&logo=youtube)](https://youtu.be/RsZB1K8oH0c)
 
 ## Why This Exists
@@ -17,6 +24,7 @@ By enabling conversational plugin development, this system:
 - **Prioritizes creativity**: Focus on sonic goals and UX, not implementation details
 - **Accelerates iteration**: Ideas become working plugins in hours, not weeks
 - **Removes gatekeeping**: Opens audio software development to the people who actually use these tools
+- **Windows-only**: Build for VST3 on Windows (AU/AUV3 not supported on this system)
 
 ## What You Can Build
 
@@ -25,7 +33,7 @@ By enabling conversational plugin development, this system:
 - **Utilities**: Analyzers, meters, routing tools, MIDI processors
 - **Experimental**: Custom DSP algorithms, hybrid processors, generative tools
 
-All plugins compile to native VST3/AU formats compatible with any DAW (Ableton, Logic, Reaper, etc.).
+All plugins compile to native VST3 formats compatible with any DAW (Ableton, Cubase Reaper, etc.).
 
 ## How It Works
 
@@ -81,12 +89,12 @@ Plugins can skip custom UI and ship as "headless" plugins using DAW-provided con
 
 ### Automated Build Pipeline
 
-7-phase build system (`scripts/build-and-install.sh`) handles validation, compilation, installation, and verification. No manual CMake commands or Xcode configuration required.
+7-phase build system (`scripts/build-and-install.sh`) handles validation, compilation, installation, and verification. No manual CMake commands or configuration required.
 
 ### Quality Assurance
 
 - Automatic validation after each stage (compile-time + runtime tests)
-- validation-agent runs pluginval automatically (VST3/AU validation)
+- validation-agent runs pluginval automatically (VST3 validation)
 - Validation is blocking - errors must be fixed before progressing
 - Regression testing on modifications
 - Backup verification before destructive operations
@@ -179,22 +187,28 @@ At every completion point:
 
 ### Prerequisites
 
-- macOS (Sonoma or later recommended)
-- Claude Code CLI
 
-All other dependencies (Xcode Command Line Tools, JUCE, CMake, Python, pluginval) can be validated and installed via `/setup`.
+
+**Windows:**
+- Windows 10/11 (64-bit)
+- JUCE installed at `C:/JUCE`
+- Visual Studio 2022 (optional, for VS project files)
+
+**Claude Code CLI** is required on all platforms.
+
+All other dependencies (CMake, Python, pluginval) can be validated and installed via `/setup`.
 
 ### First-Time Setup
 
+
+
+**Windows:**
 ```bash
 # Validate and configure your system dependencies
-/setup
+./env-setup.bat
 
-# The setup wizard will:
-# - Detect your platform and installed tools
-# - Offer to install missing dependencies automatically or guide manual installation
-# - Save configuration for build scripts
-# - Generate a system report
+# Run system check (optional)
+powershell system-check.ps1
 ```
 
 ### Create Your First Plugin
@@ -246,10 +260,12 @@ All other dependencies (Xcode Command Line Tools, JUCE, CMake, Python, pluginval
 
 ### Setup
 
-- `/setup` - Validate and configure system dependencies (first-time setup)
-  - Detects platform, checks for required tools
-  - Offers automated installation or guided manual setup
-  - Saves configuration to `.claude/system-config.json`
+
+
+**Windows:**
+- `env-setup.bat` - Set environment variables
+- `system-check.ps1` - Validate dependencies (PowerShell)
+- JUCE at `C:\JUCE` - No installation needed if already installed
 
 ### Development Workflow
 
@@ -376,23 +392,23 @@ Every problem encountered becomes institutional knowledge. The system learns and
 
 ### Software
 
-**Required:**
-- macOS 13+ (Sonoma recommended)
-- Claude Code CLI
 
-**Dependencies (validated/installed via `/setup`):**
-- Xcode Command Line Tools (`xcode-select --install`)
-- JUCE 8.0.0+ (audio plugin framework)
-- Python 3.8+ (build scripts)
-- CMake 3.15+ (build system)
-- pluginval (plugin validation tool)
+**Windows:**
+- Windows 10/11 (64-bit)
+- JUCE Framework installed at `C:/JUCE` (or use JUCE installer)
+- Visual Studio 2022 Community+ (optional, generates VS project files)
+- Python 3.8+
+- CMake 3.15+
 - Git
+- PowerShell 7+ (recommended)
 
 ### Hardware
 
-- Apple Silicon or Intel Mac
+
+**Windows:**
 - 8GB RAM minimum (16GB recommended)
 - 2GB free disk space per plugin
+- Modern CPU (supports AVX2)
 
 ### Knowledge
 
